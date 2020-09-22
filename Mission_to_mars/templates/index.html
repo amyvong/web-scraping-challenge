@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Visit the...</h1>
+      <p>Red Planet and all its' mysteries</p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">GET DATA</a></p>
+    </div>
+<div class="container">
+     
+<div class="card">
+ 
+    <h4><b>Mars Article</b></h4> 
+    <p>{{mars_data.article_t}}</p> 
+    <p>{{mars_data.article_p}}</p> 
+
+</div>
+
+<h2>Featured Image of Mars</h2>
+
+<div class="row">
+<div class ="col-md-6">
+    <h4><b>Mars Image</b></h4> 
+    <img class="img-fluid" src={{mars_data.featured_image_url}}>
+</div>
+</div>
+
+
+<div class="card">
+    
+      <h4><b>Mars Data</b></h4> 
+      <p>{{mars_data.mars_facts | safe}}</p> 
+  
+  </div>
+  <div class="row">
+    <div class ="col-md-6">
+    {% for hems in mars_data.hemispheres %}
+    <h4><b>{{hems.title}}</b></h4> <img class="img-fluid" src={{hems.image}}>
+  {% endfor %}
+  </div>
+
+
+   
+  </div>
+  </div>
+</body>
+
+</html>
